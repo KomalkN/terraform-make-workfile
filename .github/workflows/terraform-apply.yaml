@@ -51,7 +51,7 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-region: us-east-1
+          aws-region: us-east-2
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           role-session-name: ${{ secrets.ROLE_SESSION_NAME }}
       # Install Terraform CLI
