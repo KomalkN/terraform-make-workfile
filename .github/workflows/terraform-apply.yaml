@@ -54,6 +54,7 @@ jobs:
           aws-region: us-east-2
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           role-session-name: ${{ secrets.ROLE_SESSION_NAME }}
+          debug-logs: true
       # Install Terraform CLI
       - name: Terraform install
         uses: hashicorp/setup-terraform@v3
@@ -99,6 +100,7 @@ jobs:
           aws-region: us-east-2
           role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
           role-session-name: ${{ secrets.ROLE_SESSION_NAME }}
+          debug-logs: true
       # Install Terraform CLI
       - name: Terraform install
         uses: hashicorp/setup-terraform@v3
