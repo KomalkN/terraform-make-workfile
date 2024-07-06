@@ -16,6 +16,8 @@ on:
         required: true
       role-session-name:
         required: true
+      aws-region:
+        required: true
 
 jobs:
   # Job to Validate Terraform Configuration
