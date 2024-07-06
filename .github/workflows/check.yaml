@@ -11,6 +11,6 @@ jobs:
     name: "Terraform"
     uses: KomalkN/terraform-make-workfile/.github/workflows/terraform-check.yaml@main
     secrets:
-      GH_INFRA_PAT: ${{ secrets.ANKUSH_GH_PAT }}
-      role-to-assume: "arn:aws:iam::975050300138:role/github-oidc-connect"
-      role-session-name: "github-oidc-connect"
+      GH_INFRA_PAT: ${{ secrets.GH_INFRA_PAT }}
+      role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+      role-session-name: ${{ secrets.ROLE_SESSION_NAME }}
