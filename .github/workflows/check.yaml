@@ -12,5 +12,5 @@ jobs:
     uses: KomalkN/terraform-make-workfile/.github/workflows/terraform-check.yaml@main
     secrets:
       GH_INFRA_PAT: ${{ secrets.GH_INFRA_PAT }}
-      role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
-      role-session-name: ${{ secrets.ROLE_SESSION_NAME }}
+      role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      role-session-name: ${{ secrets.AWS_SESSION_NAME }}
