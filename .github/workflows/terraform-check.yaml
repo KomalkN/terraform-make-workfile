@@ -32,8 +32,8 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: ${{ secrets.role-to-assume }}
-          role-session-name: ${{ secrets.role-session-name }}
+          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+          role-session-name: ${{ secrets.ROLE_SESSION_NAME }}
       # Install Mozilla Sops Binary
       - name: Sops Binary Installer
         uses: mdgreenwald/mozilla-sops-action@v1.4.1
@@ -71,8 +71,8 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
-          role-to-assume: ${{ secrets.role-to-assume }}
-          role-session-name: ${{ secrets.role-session-name }}
+          role-to-assume: ${{ secrets.ROLE_TO_ASSUME }}
+          role-session-name: ${{ secrets.ROLE_SESSION_NAME }}
       # Install Mozilla Sops Binary
       - name: Sops Binary Installer
         uses: mdgreenwald/mozilla-sops-action@v1.4.1
