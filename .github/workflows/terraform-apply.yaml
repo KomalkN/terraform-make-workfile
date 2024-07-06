@@ -22,7 +22,7 @@ on:
       role-session-name:
         required: true
       aws-region:
-        required: true 
+        required: true
 
 jobs:
   # Job to determine the Git Ref
