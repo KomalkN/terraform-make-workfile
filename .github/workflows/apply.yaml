@@ -25,22 +25,22 @@ on:
 # Jobs to be executed in the workflow
 jobs:
    terraform:
-     runs-on: ubuntu-latest
-     steps:
-      # Check out the project repository
-      - name: Checkout Project
-        run: echo " ${{ secrets.AWS_ROLE_TO_ASSUME }}"
-    # name: "Terraform"
+     # runs-on: ubuntu-latest
+     # steps:
+     #  # Check out the project repository
+     #  - name: Checkout Project
+     #    run: echo " ${{ secrets.AWS_ROLE_TO_ASSUME }}"
+    name: "Terraform"
 
-    # uses: KomalkN/terraform-make-workfile/.github/workflows/terraform-apply.yaml@main
+    uses: KomalkN/terraform-make-workfile/.github/workflows/terraform-apply.yaml@main
     
-    # # Input parameters for the job
-    # with:
-    #   ref: ${{ github.event.inputs.ref }} # Using the Git reference from the workflow input
-    #   env: ${{ github.event.inputs.env }} # Using the environment from the workflow input
+    # Input parameters for the job
+    with:
+      ref: ${{ github.event.inputs.ref }} # Using the Git reference from the workflow input
+      env: ${{ github.event.inputs.env }} # Using the environment from the workflow input
     
-    # # Secrets needed for the job (GH_INFRA_PAT and GCP_SVC_CREDS)
-    # secrets:
-    #   GH_INFRA_PAT: ${{ secrets.GH_INFRA_PAT }}
-    #   role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-    #   role-session-name: ${{ secrets.AWS_SESSION_NAME }}
+    # Secrets needed for the job (GH_INFRA_PAT and GCP_SVC_CREDS)
+    secrets:
+      GH_INFRA_PAT: ${{ secrets.GH_INFRA_PAT }}
+      role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+      role-session-name: ${{ secrets.AWS_SESSION_NAME }}
