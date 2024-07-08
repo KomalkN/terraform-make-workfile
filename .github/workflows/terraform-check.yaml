@@ -16,9 +16,6 @@ on:
         required: true
       role-session-name:
         required: true
-      aws-region:
-        required: true
-
 jobs:
   # Job to Validate Terraform Configuration
   validate:
@@ -35,7 +32,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           role-session-name: ${{ secrets.AWS_SESSION_NAME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: us-east-2
       # Install Mozilla Sops Binary
       - name: Sops Binary Installer
         uses: mdgreenwald/mozilla-sops-action@v1.4.1
@@ -74,7 +71,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
           role-session-name: ${{ secrets.AWS_SESSION_NAME }}
-          aws-region: ${{ secrets.AWS_REGION }}
+          aws-region: us-east-2
       # Install Mozilla Sops Binary
       - name: Sops Binary Installer
         uses: mdgreenwald/mozilla-sops-action@v1.4.1
