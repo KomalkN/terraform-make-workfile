@@ -129,3 +129,42 @@ jobs:
           )
         env:
           GITHUB_TOKEN: ${{ secrets.GH_INFRA_PAT }}
+
+  # Job to Destroy Terraform
+  # Destroy:
+  #   needs: [ref, Plan]
+  #   name: "Destroy (${{ inputs.env }})"
+  #   runs-on: ubuntu-latest
+  #   concurrency: terraform-${{ inputs.env }}
+  #   env:
+  #     GITHUB_TOKEN: ${{ secrets.GH_INFRA_PAT }}
+  #   steps:
+  #     # Check out the project repository
+  #     - name: Checkout Project
+  #       uses: actions/checkout@v4
+  #     # Configure AWS Creds
+  #     - name: Configure AWS Credentials
+  #       uses: aws-actions/configure-aws-credentials@v4
+  #       with:
+  #         role-to-assume: ${{ secrets.role-to-assume }}
+  #         role-session-name: ${{ secrets.role-session-name }}
+  #         aws-region: us-east-2
+  #     # Install Terraform CLI
+  #     - name: Terraform install
+  #       uses: hashicorp/setup-terraform@v3
+  #       with:
+  #         terraform_version: "1.7.2"
+  #     # Install Mozilla Sops Binary
+  #     - name: Sops Binary Installer
+  #       uses: mdgreenwald/mozilla-sops-action@v1.4.1
+  #       with:
+  #         version: 'v3.7.3' # default is latest stable
+  #       id: install
+  #     # Initialize Terraform workspace
+  #     - name: Terraform init
+  #       run: make ENV=${{ inputs.env }} terraform/init
+  #     # Destroy Terraform-managed infrastructure
+  #     - name: Terraform Destroy
+  #       run: make ENV=${{ inputs.env }} TF_CMD_ARGS='-auto-approve' terraform/destroy
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GH_INFRA_PAT }}
