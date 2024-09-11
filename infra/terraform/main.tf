@@ -22,16 +22,16 @@ module "config" {
 # #   env              = terraform.workspace
 # # }
 
-# # Module for vpc
-# # module "aws_vpc" {
-# #   source              = "./modules/aws_vpc"
-# #   vpc_cidr_block      = lookup(local.configs, "vpc_cidr_block")
-# #   domain_name         = lookup(local.configs, "domain_name")
-# #   domain_name_servers = lookup(local.configs, "domain_name_servers")
-# #   org_name            = lookup(local.configs, "org_name")
-# #   app_name            = lookup(local.configs, "app_name")
-# #   env                 = terraform.workspace
-# # }
+# Module for vpc
+module "aws_vpc" {
+source              = "./modules/aws_vpc"
+vpc_cidr_block      = lookup(local.configs, "vpc_cidr_block")
+domain_name         = lookup(local.configs, "domain_name")
+domain_name_servers = lookup(local.configs, "domain_name_servers")
+org_name            = lookup(local.configs, "org_name")
+app_name            = lookup(local.configs, "app_name")
+env                 = terraform.workspace
+}
 
 # # Module for subnet
 # # module "aws_subnets" {
